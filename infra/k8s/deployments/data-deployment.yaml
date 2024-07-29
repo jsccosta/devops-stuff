@@ -1,0 +1,20 @@
+## backend-deployment.yaml
+## in this file a template for pods for app:data are defined
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: data-pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: data-app
+  template:
+    metadata:
+      labels:
+        app: data-app
+    spec:
+      containers:
+        - name: data-image
+          image: jscc76/silas-data
+          

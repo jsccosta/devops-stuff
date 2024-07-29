@@ -1,0 +1,14 @@
+# pgadmin-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+ name: pgadmin-service
+spec:
+ ports:
+ - protocol: TCP
+   port: 80
+   targetPort: http
+   nodePort: 30080
+ selector:
+   app: pgadmin
+ type: NodePort

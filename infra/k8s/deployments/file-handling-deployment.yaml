@@ -1,0 +1,26 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fileservice-pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fileservice-app
+  template:
+    metadata:
+      labels:
+        app: fileservice-app
+    spec:
+      volumes:
+      - name: task-pv-storage
+        persistentVolumeClaim:
+          claimName: task-pv-claim
+      containers:
+        - name: fileservice
+          image: jscc76/silas-files
+          volumeMounts:
+          - mountPath: "/submission_data"
+            name: task-pv-storage
+

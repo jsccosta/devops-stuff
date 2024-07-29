@@ -1,0 +1,19 @@
+## backend-deployment.yaml
+## in this file a template for pods for app:backend are defined
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-app
+  template:
+    metadata:
+      labels:
+        app: backend-app
+    spec:
+      containers:
+        - name: backend-image
+          image: jscc76/silas-backend

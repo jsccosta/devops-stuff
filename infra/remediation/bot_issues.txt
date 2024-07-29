@@ -1,0 +1,38 @@
+apps/v1/Deployment backend-depl                                               💥
+    path=/home/jc/Documents/projects/dashboard/infra/k8s/backend-deployment.yaml
+    [CRITICAL] Container Resources
+        · backend -> CPU limit is not set
+            Resource limits are recommended to avoid resource DDOS. Set resources.limits.cpu
+        · backend -> Memory limit is not set
+            Resource limits are recommended to avoid resource DDOS. Set resources.limits.memory
+        · backend -> CPU request is not set
+            Resource requests are recommended to make sure that the application can start and run without crashing. Set resources.requests.cpu
+        · backend -> Memory request is not set
+            Resource requests are recommended to make sure that the application can start and run without crashing. Set resources.requests.memory
+    [CRITICAL] Pod NetworkPolicy
+        · The pod does not have a matching NetworkPolicy
+            Create a NetworkPolicy that targets this pod to control who/what can communicate with this pod. Note, this feature needs to be supported by the CNI
+            implementation used in the Kubernetes cluster to have an effect.
+    [CRITICAL] Container Security Context ReadOnlyRootFilesystem
+        · backend -> Container has no configured security context
+            Set securityContext to run the container in a more secure context.
+    [CRITICAL] Container Image Tag
+        · backend -> Image with latest tag
+            Using a fixed tag is recommended to avoid accidental upgrades
+    [CRITICAL] Pod Probes
+        · Container is missing a readinessProbe
+            A readinessProbe should be used to indicate when the service is ready to receive traffic. Without it, the Pod is risking to receive traffic before
+            it has booted. It's also used during rollouts, and can prevent downtime if a new version of the application is failing.
+            More information: https://github.com/zegl/kube-score/blob/master/README_PROBES.md
+    [CRITICAL] Container Ephemeral Storage Request and Limit
+        · backend -> Ephemeral Storage limit is not set
+            Resource limits are recommended to avoid resource DDOS. Set resources.limits.ephemeral-storage
+        · backend -> Ephemeral Storage request is not set
+            Resource requests are recommended to make sure the application can start and run without crashing. Set resource.requests.ephemeral-storage
+    [CRITICAL] Container Security Context User Group ID
+        · backend -> Container has no configured security context
+            Set securityContext to run the container in a more secure context.
+    [WARNING] Deployment Replicas
+        · Deployment few replicas
+            Deployments targeted by Services are recommended to have at least 2 replicas to prevent unwanted downtime.
+v1/Service backend-srv                                                        ✅

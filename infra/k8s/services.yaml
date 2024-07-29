@@ -1,0 +1,81 @@
+# services.yaml
+## in this file the services (sets of pods regarding a deployment) are defined
+
+## backend
+apiVersion: v1
+kind: Service
+metadata:
+  name:  backend-service
+spec:
+  selector:
+    app: backend-pod
+  ports:
+    - name: backend-port
+      protocol: TCP
+      port: 8000
+      targetPort: 8000
+
+---
+
+## bot
+apiVersion: v1
+kind: Service
+metadata:
+  name:  bot-service
+spec:
+  selector:
+    app: bot-pod
+  ports:
+    - name: bot-port
+      protocol: TCP
+      port: 8005
+      targetPort: 8005
+
+---
+
+## client
+apiVersion: v1
+kind: Service
+metadata:
+  name:  client-service
+spec:
+  selector:
+    app: client-app
+  ports:
+    - name: client-port
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+
+---
+
+## data
+apiVersion: v1
+kind: Service
+metadata:
+  name:  data-service
+spec:
+  selector:
+    app: data-app
+  ports:
+    - name: data-port
+      protocol: TCP
+      port: 8001
+      targetPort: 8001
+
+
+--- 
+
+## file handling
+apiVersion: v1
+kind: Service
+metadata:
+  name:  fileservice-service
+spec:
+  selector:
+    app: fileservice-app
+  ports:
+    - name: fileservice-sport
+      protocol: TCP
+      port: 8003
+      targetPort: 8003

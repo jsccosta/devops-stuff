@@ -1,0 +1,118 @@
+{
+    "DocumentTitle": "Risk Management Report Summary",
+    "BasicInfo": {
+        "NameOfTheAccount": "Restaurant Inc",
+        "Location": "100 MAIN ST KENT, USA",
+        "GeoLocation": {
+            "Latitude": "41.662122",
+            "Longitude": "-71.449919"
+        },
+        "DateOfSurvey": "4/3/2022",
+        "DateOfPreviousSurvey": "1/18/2018"
+    },
+    "COPEOverview": {
+        "Construction": {
+            "ConstructionType": "Joisted Masonry: ISO Class 2",
+            "BuildingSquareFootage": "2172",
+            "NumberOfStories": "2",
+            "ConstructionYear": "2004"
+        },
+        "Occupancy": {
+            "PrimaryBuildingUse": "Resturants ISO CSP Class 0542 - Restaurants with Commercial Cooking"
+        },
+        "Protection": {
+            "SprinklerSystem": "Not available",
+            "SprinklerScore": "Not available",
+            "PublicProtectionClassification": "03"
+        },
+        "Exposures": {
+            "DistanceToOceanOrGulf": "15 miles to less than 20 miles to Atlantic Ocean",
+            "DistanceToNearestBodyOfWater": "1 mile to less than 2 miles to Narragansett Bay",
+            "WindGeographicRiskFactor": "High"
+        }
+    },
+    "Analytics": {
+        "RelativeHazards": {
+            "TargetRiskPercentile": "85"
+        },
+        "LossEstimates": {
+            "TotalInsurableValue": "$1,073,629,360",
+            "PropertyDamageValue": {
+                "%": "73",
+                "Value": "$782,503,773"
+            },
+            "BusinessInterruptionValue": {
+                "%": "27",
+                "Value": "$291,125,587"
+            },
+            "MAS": {
+                "%": "61",
+                "Value": "$477,327,302"
+            },
+            "MFL": {
+                "%": "46",
+                "Value": "$359,951,736"
+            },
+            "NLE": {
+                "%": "36",
+                "Value": "$281,701,358"
+            }
+        }
+    },
+    "LocationDetails": {
+        "ISOCommercialTerritoryCode": "021",
+        "ISOGroupIIZoneCommercial": "TERRITORY I",
+        "ISOCommercialAutoTerritoryCode": "108"
+    },
+    "AggregateCrimeScores": {
+        "CAPIndex": {
+            "CurrentScore": "130",
+            "PastScore": "119",
+            "ForecastedScore": "124"
+        },
+        "CrimesAgainstPerson": {
+            "CurrentScore": "137",
+            "PastScore": "126",
+            "ForecastedScore": "135"
+        },
+        "CrimesAgainstProperty": {
+            "CurrentScore": "142",
+            "PastScore": "102",
+            "ForecastedScore": "119"
+        }
+    },
+    "BusinessesAtAddress": {
+        "NumberOfBusinesses": "3"
+    },
+    "PropertyInformation": {
+        "PropertyCharacteristics": {
+            "GrossArea": "2,435",
+            "Condition": "Average"
+        },
+        "LastMarketSaleInformation": {
+            "SaleDate": "08/09/2001",
+            "SalePrice": "$325,000"
+        },
+        "SiteInformation": {
+            "Acres": "0.625",
+            "LotArea": "27,218",
+            "TotalUnits": "1",
+            "NumberOfBuildings": "1"
+        },
+        "TaxInformation": {
+            "TotalValue": "$717,000",
+            "LandValue": "$287,500",
+            "ImprovementValue": "$429,500",
+            "MarketValue": "Not available"
+        }
+    },
+    "Recommendation": {
+        "DateOfRecommendation": "2/23/2022",
+        "Ranking": "Critical",
+        "Type": "Sprinkler Protection",
+        "DetailsOfRecommendation": "Risk engineer recommendation to implement sprinkler systems throughout premise",
+        "ImpactOnLossEstimates": "MFL reduction to 30% and NLE reduction to 5%",
+        "Status": "In progress",
+        "ClientComments": "Costs for sprinkler implementation being analysed and will be implemented"
+    }
+}

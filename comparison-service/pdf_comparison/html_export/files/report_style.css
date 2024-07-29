@@ -1,0 +1,53 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    width: 100%; /* Change this to 100% */
+    max-width: 210mm; /* Add this line */
+    height: 297mm;
+    margin: 0 auto;
+    box-sizing: border-box;
+    line-height: 1.5;
+}
+
+header, footer {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 10mm;
+    text-align: center;
+}
+
+/* Titles */
+h1, h2 {
+    color: #444;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+table {
+    width: 70%;     /* Adjust this value as needed*/
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    page-break-inside: avoid;
+    box-sizing: border-box;
+}
+
+th {
+    background-color: hsl(0, 2%, 49%); /* Change this to your desired color */
+    color: #333;
+}
+
+td {
+    background-color: transparent; /* Ensure that the color is not applied to table data */
+}
+

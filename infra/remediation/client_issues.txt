@@ -1,0 +1,38 @@
+apps/v1/Deployment client-depl                                                💥
+    path=/home/jc/Documents/projects/dashboard/infra/k8s/client-deployment.yaml
+    [CRITICAL] Container Security Context User Group ID
+        · client -> Container has no configured security context
+            Set securityContext to run the container in a more secure context.
+    [CRITICAL] Container Image Tag
+        · client -> Image with latest tag
+            Using a fixed tag is recommended to avoid accidental upgrades
+    [CRITICAL] Container Security Context ReadOnlyRootFilesystem
+        · client -> Container has no configured security context
+            Set securityContext to run the container in a more secure context.
+    [CRITICAL] Pod Probes
+        · Container is missing a readinessProbe
+            A readinessProbe should be used to indicate when the service is ready to receive traffic. Without it, the Pod is risking to receive traffic before
+            it has booted. It's also used during rollouts, and can prevent downtime if a new version of the application is failing.
+            More information: https://github.com/zegl/kube-score/blob/master/README_PROBES.md
+    [CRITICAL] Pod NetworkPolicy
+        · The pod does not have a matching NetworkPolicy
+            Create a NetworkPolicy that targets this pod to control who/what can communicate with this pod. Note, this feature needs to be supported by the CNI
+            implementation used in the Kubernetes cluster to have an effect.
+    [CRITICAL] Container Resources
+        · client -> CPU limit is not set
+            Resource limits are recommended to avoid resource DDOS. Set resources.limits.cpu
+        · client -> Memory limit is not set
+            Resource limits are recommended to avoid resource DDOS. Set resources.limits.memory
+        · client -> CPU request is not set
+            Resource requests are recommended to make sure that the application can start and run without crashing. Set resources.requests.cpu
+        · client -> Memory request is not set
+            Resource requests are recommended to make sure that the application can start and run without crashing. Set resources.requests.memory
+    [CRITICAL] Container Ephemeral Storage Request and Limit
+        · client -> Ephemeral Storage limit is not set
+            Resource limits are recommended to avoid resource DDOS. Set resources.limits.ephemeral-storage
+        · client -> Ephemeral Storage request is not set
+            Resource requests are recommended to make sure the application can start and run without crashing. Set resource.requests.ephemeral-storage
+    [WARNING] Deployment Replicas
+        · Deployment few replicas
+            Deployments targeted by Services are recommended to have at least 2 replicas to prevent unwanted downtime.
+v1/Service client-srv                                                         ✅

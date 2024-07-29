@@ -1,0 +1,6 @@
+Occupancy,ISO Number,GWP,TIV,Average Base Rate %,Claims Total (USD),Loss Ratio %
+Hotels,10,10000,1800000,0.49,34000,34
+Manufacturing,40,3000000,1800000,0.39,55000,67
+Pharmaceuticals,30,1000,3000000,0.20,34000,53
+Food,60,6500,13000000,0.14,89000,38
+Retail,90,3490,15000000,0.18,34000,27

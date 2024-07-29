@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PDF Report</title>
+    <link rel="stylesheet" type="text/css" href="report_style.css">
+</head>
+<body>
+    <header>
+        <!-- Add your header content here -->
+    </header>
+
+    <main>
+        <h1>PDF Comparison Report</h1>
+
+        <h2>Insertions ({{ n_insert }})</h2>
+        <table>
+            <tr>
+                <th>Text</th>
+                <th>Page Number</th>
+            </tr>
+            {% for change in insert %}
+            <tr>
+                <td>{{ change.text_B }}</td>
+                <th>{{ change.match_tuple[2] +1 }}</th>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h2>Deletions ({{ n_delete }})</h2>
+        <table>
+            <tr>
+                <th>Text</th>
+                <th>Page Number</th>
+            </tr>
+            {% for change in delete %}
+            <tr>
+                <td>{{ change.text_A }}</td>
+                <th>{{ change.match_tuple[0] +1 }}</th>
+            </tr>
+            {% endfor %}
+        </table>
+        
+        <h2>Replacements ({{ n_replace }})</h2>
+        <table>
+            <tr>
+                <th>Original Text</th>
+                <th>Original Page Number</th>
+                <th>New Text</th>
+                <th>New Page Number</th>
+            </tr>
+            {% for change in replace %}
+            <tr>
+                <td>{{ change.text_A }}</td>
+                <td>{{ change.match_tuple[0] +1 }}</td>
+                <td>{{ change.text_B }}</td>
+                <td>{{ change.match_tuple[2] +1 }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </main>
+
+    <footer>
+        <!-- Add your footer content here -->
+    </footer>
+</body>
+</html>

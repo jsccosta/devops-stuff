@@ -1,0 +1,13 @@
+networking.k8s.io/v1/Ingress ingress-service                                  💥
+    path=/home/jc/Documents/projects/dashboard/infra/k8s/ingress-srv.yaml
+    [CRITICAL] Ingress targets Service
+        · /api/v1/llama -> No service match was found
+            No service with name bot-srv and port number 8005 was found
+        · /api/v1/submission?(.*) -> No service match was found
+            No service with name submissions-srv and port number 8002 was found
+        · /api/v1/files?(.*) -> No service match was found
+            No service with name fileservice-srv and port number 8003 was found
+        · /api/v1/?(.*) -> No service match was found
+            No service with name data-srv and port number 8001 was found
+        · /?(.*) -> No service match was found
+            No service with name client-srv and port number 8080 was found

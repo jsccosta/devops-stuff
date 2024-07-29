@@ -1,0 +1,47 @@
+# pdadmin-servers.yaml
+# file where we configure servers to access the DB
+# Considerations:
+# * If any Servers are defined with a Server Group that is not already present in the configuration database, the required Group will be created.
+# * The following attributes are required to be present in every server definition: Name, Group, Port, Username, SSLMode, MaintenanceDB and one of Host, HostAddr or Service
+# https://www.pgadmin.org/docs/pgadmin4/latest/server_dialog.html
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pgadmin-config
+data:
+  servers.json: |
+    {
+      "1": {
+        "Name": "Admin/Master server",
+        "Group": "Server Group 1",                                              # To select the parent node for the server
+        "Host": "postgres-service",                                             # Should be name of the Kubernetes service for postgres 
+        #"HostAddr": "192.168.1.2",                                              
+        "Port": 5432,                                                           # The port number on which PostgreSQL is running
+        "MaintenanceDB": "SilasDB",                                             # Initial database to which the client will connect
+        "Username": "silas@pgadmin.com",
+        "Role": "Admin",
+        "SSLMode": "require",
+        "Comment": "This server is to be acessible by people on Silas-Insurtech",
+        "DBRestriction": "silas_DB",                                            # Lists of databases accessible through this server
+        #"PassFile": "/path/to/pgpassfile",
+        #"SSLCert": "/path/to/sslcert.crt",
+        #"SSLKey": "/path/to/sslcert.key",
+        #"SSLRootCert": "/path/to/sslroot.crt",
+        #"SSLCrl": "/path/to/sslcrl.crl",
+        #"SSLCompression": 0,
+        "Shared": false,                                                         # Whether this server is shared among multiple users.
+        #"SharedUsername": "postgres",
+        "BGColor": "#ff9900",                                                    # To specify the background color for the server
+        "FGColor": "#000000",                                                    # To specify the foreground color for the server.
+        "Service": "postgresql-10",
+        "Timeout": 10,                                                           # Time for waiting a connection to be made (in seconds)
+        #"UseSSHTunnel": 1,
+        #"TunnelHost": "192.168.1.253",
+        #"TunnelPort": 22,
+        #"TunnelUsername": "username",
+        # "TunnelAuthentication": 0,
+        #"PasswordExecCommand": "echo 'test'",
+        #"PasswordExecExpiration": 100                                            # Password expiration time (in seconds).
+      }
+    }

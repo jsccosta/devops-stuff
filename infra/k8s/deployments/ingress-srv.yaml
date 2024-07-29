@@ -1,0 +1,61 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-service
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  rules:
+    - host: silas.dev
+      http:
+        paths:
+          - path: /api/v1/llama
+            pathType: Prefix
+            backend:
+              service:
+                name: bot-srv
+                port:
+                  number: 8005
+          # - path: /api/v1/submissions/
+          #   pathType: Prefix
+          #   backend:
+          #     service:
+          #       name: submissions-srv
+          #       port:
+          #         number: 8009
+          # - path: /api/v1/submission?(.*)
+          #   pathType: Prefix
+          #   backend:
+          #     service:
+          #       name: backend-srv
+          #       port:
+          #         number: 8000
+          - path: /api/v1/submission?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: submissions-srv
+                port:
+                  number: 8002
+          - path: /api/v1/files?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: fileservice-srv
+                port:
+                  number: 8003
+          - path: /api/v1/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: data-srv
+                port:
+                  number: 8001
+          - path: /?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: client-srv
+                port:
+                  number: 8080

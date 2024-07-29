@@ -1,0 +1,119 @@
+{
+    "DocumentTitle": "Risk Management Report Summary",
+    "BasicInfo": {
+        "NameOfTheAccount": "",
+        "Location": "",
+        "GeoLocation": {
+            "Latitude": "",
+            "Longitude": ""
+        },
+        "DateOfSurvey": "",
+        "DateOfPreviousSurvey": ""
+    },
+    "COPEOverview": {
+        "Construction": {
+            "ConstructionType": "",
+            "BuildingSquareFootage": "",
+            "NumberOfStories": "",
+            "ConstructionYear": ""
+        },
+        "Occupancy": {
+            "PrimaryBuildingUse": ""
+        },
+        "Protection": {
+            "SprinklerSystem": "",
+            "SprinklerScore": "",
+            "PublicProtectionClassification": ""
+        },
+        "Exposures": {
+            "DistanceToOceanOrGulf": "",
+            "DistanceToNearestBodyOfWater": "",
+            "WindGeographicRiskFactor": ""
+        }
+    },
+    "Analytics": {
+        "RelativeHazards": {
+            "TargetRiskPercentile": ""
+        },
+        "LossEstimates": {
+            "TotalInsurableValue":"",
+            "PropertyDamageValue": {
+                "%": "",
+                "Value": ""
+            },
+            "BusinessInterruptionValue": {
+                "%": "",
+                "Value": ""
+            },
+            "MAS": {
+                "%": "",
+                "Value": ""
+            },
+            "MFL": {
+                "%": "",
+                "Value": ""
+            },
+            "NLE": {
+                "%": "",
+                "Value": ""
+            }
+
+        }
+    },
+    "LocationDetails":  {
+            "ISOCommercialTerritoryCode": "",
+            "ISOGroupIIZoneCommercial": "",
+            "ISOCommercialAutoTerritoryCode": ""
+    },
+    "AggregateCrimeScores": {
+            "CAPIndex": {
+                "CurrentScore":"",
+                "PastScore":"",
+                "ForecastedScore":""
+            },
+            "CrimesAgainstPerson": {
+                "CurrentScore":"",
+                "PastScore":"",
+                "ForecastedScore":""
+            },
+            "CrimesAgainstProperty": {
+                "CurrentScore":"",
+                "PastScore":"",
+                "ForecastedScore":""
+            }
+    },
+    "BusinessesAtAddress": {
+        "NumberOfBusinesses": ""
+    },
+    "PropertyInformation": {
+        "PropertyCharacteristics": {
+            "GrossArea": "",
+            "Condition": ""
+        },
+        "LastMarketSaleInformation": {
+            "SaleDate": "",
+            "SalePrice": ""
+        },
+        "SiteInformation": {
+            "Acres": "",
+            "LotArea": "",
+            "TotalUnits": "",
+            "NumberOfBuildings": ""
+        },
+        "TaxInformation": {
+            "TotalValue": "",
+            "LandValue": "",
+            "ImprovementValue": "",
+            "MarketValue": ""
+        }
+    },
+    "Recommendation": {
+        "DateOfRecommendation": "",
+        "Ranking": "",
+        "Type": "",
+        "DetailsOfRecommendation": "",
+        "ImpactOnLossEstimates": "",
+        "Status": "",
+        "ClientComments": ""
+    }
+}

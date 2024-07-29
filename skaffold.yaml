@@ -1,0 +1,67 @@
+apiVersion: skaffold/v4beta10
+kind: Config
+build:
+  local:
+    push: false
+  artifacts:
+    - image: jscc76/silas-backend
+      context: backend
+      sync:
+        manual:
+          - src: app/**/*.py
+            dest: .
+      docker:
+        dockerfile: Dockerfile
+    - image: jscc76/silas-submissions
+      context: submissions-service
+      sync:
+        manual:
+          - src: app/**/*.py
+            dest: .
+      docker:
+        dockerfile: Dockerfile
+    - image: jscc76/silas-files
+      context: files-service
+      sync:
+        manual:
+          - src: app/**/*.py
+            dest: .
+      docker:
+        dockerfile: Dockerfile
+    - image: jscc76/silas-data
+      context: data-service
+      sync:
+        manual:
+          - src: src/**/*.ts
+            dest: .
+      docker:
+        dockerfile: Dockerfile
+    - image: jscc76/silas-frontend
+      context: frontend/silas-react
+      sync:
+        manual:
+          - src: app/**/*.py
+            dest: .
+      docker:
+        dockerfile: Dockerfile
+    - image: jscc76/silas-bot
+      context: bot-service
+      sync:
+        manual:
+          - src: app/**/*.py
+            dest: .
+      docker:
+        dockerfile: Dockerfile
+    # - image: jscc76/silas-submissions
+    #   context: submissions-service
+    #   sync:
+    #     manual:
+    #       - src: app/**/*.py
+    #         dest: .
+    #   docker:
+    #     dockerfile: Dockerfile
+manifests:
+  rawYaml:
+    - ./infra/k8s/*
+deploy:
+  kubectl: {}

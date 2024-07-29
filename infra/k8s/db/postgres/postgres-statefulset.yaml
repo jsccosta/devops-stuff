@@ -1,0 +1,79 @@
+# postgres-statefulset.yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres-statefulset
+  # namespace: postgres-ns
+spec:
+  selector:
+    matchLabels:
+      app: postgres
+  serviceName: "postgres-service"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      terminationGracePeriodSeconds: 30
+      initContainers:
+      - name: init                  # init container to setup an archive directory for the postgres instance
+        image: postgres:15.0
+        command: [ "bash", "-c" ]
+        args:
+        - |
+          #create archive directory
+          mkdir -p /data/archive && chown -R 999:999 /data/archive
+        volumeMounts:
+        - name: postgres-volumeclaim  # Changed from 'data' to 'postgres-volumeclaim'
+          mountPath: /data
+          readOnly: false
+      containers:
+      - name: postgres-container
+        image: postgres:15.0
+        args: ["-c", "config_file=/config/postgresql.conf"]  # where to find the file when container starts
+        ports:
+        - containerPort: 5432
+          name: database
+        env:
+        - name: PGDATA          # first env that postgres needs to read, before conf file
+          value: "/data/pgdata" 
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: POSTGRES_USER
+              optional: false
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: POSTGRES_PASSWORD
+              optional: false
+        - name: POSTGRES_DB
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: POSTGRES_DB
+              optional: false
+        volumeMounts:
+        - name: config
+          mountPath: /config
+          readOnly: false
+        - name: postgres-volumeclaim  # Changed from 'data' to 'postgres-volumeclaim'
+          mountPath: /data
+          readOnly: false
+      volumes:
+      - name: config
+        configMap:
+          name: postgres-configmap
+          defaultMode: 0755
+  volumeClaimTemplates:
+  - metadata:
+      name: postgres-volumeclaim
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "standard"   # this will depend on cloud provider, we need to check the type of disk 
+      resources:
+        requests:
+          storage: 100Mi

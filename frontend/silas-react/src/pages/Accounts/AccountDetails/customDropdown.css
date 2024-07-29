@@ -1,0 +1,34 @@
+.Dropdown-root {
+    width: 200px;
+    margin-bottom: 16px;
+    margin-top: 16px;
+}
+
+.Dropdown-control {
+    background-color: transparent;
+    border: none;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 700;
+    color: #64748b;
+    padding-left: 0;
+}
+
+.Dropdown-control:hover {
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.Dropdown-option .is-selected {
+    background-color: #504f4f;
+}
+
+.Dropdown-menu {
+    /* background-color: #f1f5f9; */
+    border: none;
+    font-weight: 700;
+}
+
+.dark .Dropdown-control {
+    color: #aeb7c0;
+}

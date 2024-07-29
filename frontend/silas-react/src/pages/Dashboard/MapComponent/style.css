@@ -1,0 +1,11 @@
+.parent {
+    display: grid;
+    height: 600px;
+    width: 100%;
+    position: relative;
+  }
+
+  div[mapboxgl-children] {
+    display: none;
+  }
+  

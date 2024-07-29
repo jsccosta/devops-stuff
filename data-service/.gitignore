@@ -1,0 +1,16 @@
+# Ignore Python bytecode files
+__pycache__/
+*.pyc
+
+# Ignore files in the logs directory
+/logs/
+
+# Ignore the virtual environment directory
+/venv/
+
+# Ignore environment-specific files
+.env
+
+/models/
+/test_uploads
+

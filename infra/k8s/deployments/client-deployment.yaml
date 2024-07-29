@@ -1,0 +1,19 @@
+## backend-deployment.yaml
+## in this file a template for pods for app:client are defined
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: client-app
+  template:
+    metadata:
+      labels:
+        app: client-app
+    spec:
+      containers:
+          - name: client-image
+            image: jscc76/silas-frontend

@@ -1,0 +1,19 @@
+# postgres-service.yaml
+# service file for postgres db of silas-insuretech
+# exposes pods
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-service
+  # namespace: postgres-ns
+  labels:
+    app: postgres
+spec:
+  ports:
+  - port: 5432          # port gets foward to targetPort
+    targetPort: 5432
+    name: postgres-port
+  clusterIP: None       # when we run a postgres instance pod name will 
+                        # have the form postgres-0,1,2 .. individually adressable
+  selector:
+    app: postgres
