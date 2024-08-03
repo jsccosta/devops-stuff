@@ -1,13 +1,10 @@
 FROM python:3.10.13-slim-bullseye
 
-# Update package lists and install Clang
 RUN apt-get update && \
-    apt-get install -y clang wget
-
-RUN apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-RUN apt-get update && apt-get install -y \
+    apt-get install -y clang wget && \
+apt-get clean && \
+    rm -rf /var/lib/apt/lists/* && \
+apt-get update && apt-get install -y \
     build-essential \
     libjpeg-dev \
     wget \
